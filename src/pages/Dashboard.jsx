@@ -7,6 +7,7 @@ import {
 import { dummyStats, dummyUser } from "../assets/asset";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const Dashboard = () => {
   const user = dummyUser;
@@ -18,8 +19,33 @@ const Dashboard = () => {
   const [joinId, setJoinId] = useState("");
   const stats = dummyStats;
 
-  const handleCreateMeeting = () => {};
-  const handleJoinMeeting = (e) => {};
+  const handleCreateMeeting = () => {
+    setIsCreating(true);
+    const chars = "abcdefghijklmnopqrstuvwxyz";
+    const seg = () =>
+      Array.from(
+        { length: 3 },
+        () => chars[Math.floor(Math.random() * chars.length)],
+      ).join("");
+    const newMeetingId = `${seg()}-${seg()}-${seg()}`;
+
+    setTimeout(() => {
+      setIsCreating(false);
+      toast.success("Meeting created!");
+      navigate(`/meeting/${newMeetingId}`);
+    }, 400);
+  };
+
+  const handleJoinMeeting = (e) => {
+    e.preventDefault();
+    const cleanId = joinId.trim();
+    if (!cleanId) {
+      toast.error("Please enter a valid Meeting ID");
+      return;
+    }
+
+    navigate(`/meeting/${cleanId}`);
+  };
 
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);

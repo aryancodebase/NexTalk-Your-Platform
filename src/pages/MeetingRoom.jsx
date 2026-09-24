@@ -5,6 +5,7 @@ import VideoGrid from "../meeting/VideoGrid";
 import useWebRTC from "../hooks/useWebRTC";
 import { useChat } from "../hooks/useChat";
 import ChatPanel from "../meeting/ChatPanel";
+import ParticipantList from "../meeting/ParticipantList";
 
 const MeetingRoom = () => {
   const { meetingId } = useParams();
@@ -63,7 +64,7 @@ overflow-hidden relative font-sans"
           videoEnabled={videoEnabled}
         />
         {/* In meeting chat drawer  */}
-        <ChatPanel 
+        <ChatPanel
           isOpen={isChatOpen}
           onClose={toggleChat}
           messages={messages}
@@ -71,6 +72,15 @@ overflow-hidden relative font-sans"
           currentUser={userdata}
         />
         {/* participants drawer  */}
+        <ParticipantList
+          isOpen={isParticipantsOpen}
+          onClose={() => setIsParticipantsOpen(false)}
+          localUser={userdata}
+          localAudio={audioEnabled}
+          localVideo={videoEnabled}
+          remoteUsers={remoteUsers}
+          meetingHostId={dummyUser.id}
+        />
         {/* bottom floating control bar */}
       </div>
     </div>

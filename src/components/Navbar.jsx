@@ -12,7 +12,7 @@ const Navbar = () => {
     user?.primaryEmailAddress?.emailAddress?.split("@")[0] ||
     "User";
   return (
-    <header className="w-full max-w-[305px] mx-auto bg-white/90 backdrop-blur xl:rounded-b-xl sticky top-0 z-40 px-6 py-4 flex items-center justify-between border border-slate-200">
+    <header className="w-full max-w-7xl mx-auto bg-white/90 backdrop-blur xl:rounded-b-xl sticky top-0 z-40 px-6 py-4 flex items-center justify-between border border-slate-200">
       {/* brand logo & navigation links */}
       <div className="flex items-center gap-6">
         <Link to="/dashboard" className="flex items-center gap-1.5">
@@ -65,5 +65,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-

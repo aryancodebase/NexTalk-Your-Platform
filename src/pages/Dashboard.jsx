@@ -4,13 +4,14 @@ import {
   PlusIcon,
   ShieldCheckIcon,
 } from "lucide-react";
-import { dummyStats, dummyUser } from "../assets/asset";
+import { dummyStats } from "../assets/asset";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { useUser } from "@clerk/react";
 
 const Dashboard = () => {
-  const user = dummyUser;
+  const { user } = useUser();
   const userName = user.fullName;
   const userEmail = user.primaryEmailAddress.emailAddress;
   const navigate = useNavigate();
@@ -63,7 +64,7 @@ const Dashboard = () => {
             </div>
             <h1 className="text-4xl sm:text-5xl text-slate-800 leading-tight font-medium">
               High quality video calls. <br />
-              <span className="text-primary">Built for everyone. </span>
+              <span className="text-primary">Built for everyone.</span>
             </h1>
             <p className="text-slate-700 text-base sm:text-lg max-w-xl leading-relaxed">
               Connect, collaborate, and celebrate from anywhere with ultra-low
@@ -136,7 +137,7 @@ const Dashboard = () => {
             <div className="pt-4 border-t border-white/30 text-sm text-slate-600">
               <div className="flex items-center justify-between py-6 px-4">
                 <p>
-                  Logged in as:
+                  Logged in as:{" "}
                   <span className="text-slate-900">{userEmail}</span>
                 </p>
                 <span

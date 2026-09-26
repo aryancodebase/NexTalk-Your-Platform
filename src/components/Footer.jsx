@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer
-      className="w-full max-w-[305px] mx-auto bg-white/10 backdrop-blur-xl rounded-t-xl px-6 py-4 text-center"
+      className="w-full max-w-7xl mx-auto bg-white/10 backdrop-blur-xl rounded-t-xl px-6 py-4 text-center"
     >
       <p className="text-xs font-medium text-white">
         @ 2026 MeetUp. All rights reserved .

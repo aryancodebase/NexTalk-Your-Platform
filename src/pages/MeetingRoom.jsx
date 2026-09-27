@@ -1,12 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { dummyMeetingDetails, dummyUser } from "../assets/asset";
 import { useCallback, useState } from "react";
-import VideoGrid from "../meeting/VideoGrid";
+import VideoGrid from "../components/meeting/VideoGrid";
 import useWebRTC from "../hooks/useWebRTC";
 import { useChat } from "../hooks/useChat";
-import ChatPanel from "../meeting/ChatPanel";
-import ParticipantList from "../meeting/ParticipantList";
-import ControlBar from "../meeting/ControlBar";
+import ChatPanel from "../components/meeting/ChatPanel";
+import ParticipantList from "../components/meeting/ParticipantList";
+import ControlBar from "../components/meeting/ControlBar";
 import toast from "react-hot-toast";
 
 const MeetingRoom = () => {
